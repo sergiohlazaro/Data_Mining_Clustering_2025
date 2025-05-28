@@ -1,0 +1,69 @@
+🛠️ PHASE 1: ENVIRONMENT PREPARATION
+
+Clustering/
+├── data/                  # Dataset original y preprocesado
+├── figures/               # Gráficos generados por los algoritmos
+├── clustering/            # Scripts de cada algoritmo
+│   ├── jerarquico.py
+│   ├── particional.py
+│   └── probabilista.py
+├── evaluacion/
+│   └── metricas.py        # Funciones comunes: Silhouette, SSW, BIC...
+├── informe.md             # Informe escrito (puede ser PDF)
+└── presentacion.pdf       # Diapositivas para exposición grupal
+
+Install the necessary packages: $ pip install numpy pandas matplotlib seaborn scikit-learn scipy
+
+📊 PHASE 2: DATA PREPROCESSING
+
+- Load the dataset (data/).
+- Normalize variables if they have different scales (StandardScaler).
+- Visualize the overall distribution of the data (histograms, scatter).
+
+-> Once implemented preprocessing.py we ​​have to do:
+
+    -> Scatter plot: a strictly increasing relationship is shown between rownames and year, 
+    confirming that these are columns that do not represent team characteristics, but probably identifiers.
+    -> Remove these columns from clustering: rownames, year. [clean_csv.py] = [mlb_teams_cleaned.csv]
+
+🔄 PHASE 3: IMPLEMENTATION OF THE ALGORITHMS
+
+1. Partitioned Clustering (K-means)
+
+- Run K-means for several values ​​of k.
+- Visualize the clusters.
+- Evaluate with:
+    - SSW (inertia_)
+    - Elbow method
+    - Silhouette
+
+2. Hierarchical Clustering
+
+- Run Agglomerative Clustering with different linkage strategies.
+- Visualize the dendrogram.
+- Cut the dendrogram to obtain different numbers of clusters.
+- Evaluate with Silhouette.
+
+3. Probabilistic Clustering (GMM)
+
+- Use Gaussian Mixture with several k.
+- Evaluate with BIC and Silhouette.
+- Visualize the clusters and their ellipses (distributions).
+
+📈 PHASE 4: COMPARATIVE EVALUATION
+
+1. Summary metrics by algorithm:
+
+- Number of clusters
+- Silhouette
+- Inertia (SSW)
+- BIC (only for GMM)
+
+2. Comparative table + summary graph
+
+- You can use a bar chart or radar chart
+
+3. Qualitative analysis:
+
+- Which clustered better visually?
+- Which found more coherent structures?
