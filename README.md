@@ -47,12 +47,10 @@ pip install pandas numpy scikit-learn matplotlib seaborn scipy
 ```bash
 python preparation/preprocessing.py
 python preparation/clean_columns.py
-Aplicar clustering
 
 python clustering/partitioned.py      # K-Means
 python clustering/hierarchical.py     # Jerárquico
 python clustering/probabilistic.py    # GMM
-Comparación de resultados
 
 python evaluation/compare_clustering.py
 ```
